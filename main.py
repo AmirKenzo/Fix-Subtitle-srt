@@ -28,7 +28,7 @@ def fix_subtitle(file_path):
     fixed_content = subtitle_pattern.sub(lambda m: f"{m.group(1)}\n{m.group(2)}\n{add_unicode_control_chars(m.group(3))}\n\n", content)
     
 
-    fixed_file_path = file_path.replace('.srt', '_fixed.srt')
+    fixed_file_path = file_path.replace('.srt', '.srt')
     with open(fixed_file_path, 'w', encoding='utf-8') as file:
         file.write(fixed_content)
     
@@ -43,3 +43,5 @@ def fix_all_srt_files_in_directory(directory):
 
 current_directory = os.getcwd()
 fix_all_srt_files_in_directory(current_directory)
+print('Finish')
+os.system("pause")
